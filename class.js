@@ -18,3 +18,36 @@ let user = new User("Mike","Kuzin")
 User.say();
 user.who();
 user.some();
+
+
+
+
+
+
+
+
+class Promise {
+  constructor(caalback) {
+    caalback(resolve,reject)
+  }
+
+  resolve(payload) {
+    console.log(payload)
+  }
+
+  reject(payload) {
+    console.log(payload)
+  }
+
+  then(caalback) {
+    caalback(payload) {
+
+    }
+  }
+
+  catch(caalback) {
+    caalback(payload) {
+
+    }
+  }
+}
