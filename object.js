@@ -20,12 +20,25 @@ let salaries = {
   Pete: 130
 }
 
-function allsal(obj) {
-  let sum
-  for (key in obj) {
-    let sum  obj[key] + obj[key]
-      return sum
+  let sum = 0
+  for (key in salaries) {
+     sum += salaries[key]
   }
-  return 0
+// console.log(sum)
+
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+function multiplyNumeric(obj) {
+ for (let key in obj) {
+   if (typeof obj[key] == 'number') {
+     obj[key] *= 2;
+   }
+ }
 }
-console.log(allsal(salaries))
+ multiplyNumeric(menu)
+ console.log(menu)
