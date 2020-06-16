@@ -4,8 +4,8 @@ var Car = (function() {
   var uid = 0;
 
   function Car(mileage) {
-    this.id = uid;
-    privateStore[this.id = ++uid] = {};
+    this.id = uid++;
+    privateStore[this.id] = {};
     privateStore[this.id].mileage = mileage || 0;
     this.drive =  function(miles) {
     if (typeof miles == 'number' && miles > 0)
