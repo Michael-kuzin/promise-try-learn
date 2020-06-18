@@ -88,3 +88,22 @@ function sum(a) {
 }
 
 console.log(sum(1)(2))
+
+
+
+var colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+var p_collect = document.getElementsByTagName('p');
+
+
+var f1 = function() {
+	var k = 0;
+	return function() {
+		this.style.color = colors[k];
+		k++;
+		if (k == colors.length){k=0};
+	}
+}
+
+for (var i = 0; i < p_collect.length; i++) {
+	p_collect[i].addEventListener('click', f1());
+}
