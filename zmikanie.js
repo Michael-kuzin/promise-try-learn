@@ -92,20 +92,68 @@
 
 
 
-function counter() {
-  this.a = 0;
-  const func = function() {
-     return this.a++
-  }
-  // this.a = undefined;
-  return func;
+// function counter() {
+//   this.a = 0;
+//   const func = function() {
+//      return this.a++
+//   }
+//   // this.a = undefined;
+//   return func;
+// }
+//
+//
+// let counter1 = counter();
+// console.log(counter1());
+// console.log(counter1());
+// console.log(counter1());
+//
+// let counter2 = counter();
+// console.log(counter2());
+
+
+
+// var colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+// var p_collect = document.getElementsByTagName('p');
+//
+//
+// var f1 = function() {
+// 	var k = 0;
+// 	return function() {
+// 		this.style.color = colors[k];
+// 		k++;
+// 		if (k == colors.length){k=0};
+// 	}
+// }
+//
+// for (var i = 0; i < p_collect.length; i++) {
+// 	p_collect[i].addEventListener('click', f1());
+// }
+//
+// let arr = [];
+// for(let i = 0;i < 5;i++) {
+//   arr.push({click:function() {f1()}})
+// }
+//
+//
+// const firstElement = arr[0];
+// firstElement.click();
+
+
+
+let obj = {
+  number: 0,
+  click: (function() {
+    let c = this.number;
+    let a = 0;
+    let b = 1;
+    return function() {
+      c = a;
+      a = b;
+    }
+  })(),
 }
 
-
-let counter1 = counter();
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
-
-let counter2 = counter();
-console.log(counter2());
+obj.click();
+obj.click();
+obj.click();
+console.log(obj.number)
