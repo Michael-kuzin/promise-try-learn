@@ -81,29 +81,54 @@
 
 
 
-function sum(a) {
-  return function(b) {
-    return a + b;
-  }
+// function sum(a) {
+//   return function(b) {
+//     return a + b;
+//   }
+// }
+//
+// console.log(sum(1)(2))
+//
+//
+//
+// var colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+// var p_collect = document.getElementsByTagName('p');
+//
+//
+// var f1 = function() {
+// 	var k = 0;
+// 	return function() {
+// 		this.style.color = colors[k];
+// 		k++;
+// 		if (k == colors.length){k=0};
+// 	}
+// }
+//
+// for (var i = 0; i < p_collect.length; i++) {
+// 	p_collect[i].addEventListener('click', f1());
+// }
+
+
+
+
+let obj = {
+  number:3,
+  func:(function () {
+        let a = 1;
+        let b = 1;
+        return function() {
+          for(let i = 3;i <= this.number; i++) {
+            let c = a + b;
+            a = b;
+            b = c;
+          }
+          return b;
+        }
+ }())
 }
-
-console.log(sum(1)(2))
-
-
-
-var colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-var p_collect = document.getElementsByTagName('p');
-
-
-var f1 = function() {
-	var k = 0;
-	return function() {
-		this.style.color = colors[k];
-		k++;
-		if (k == colors.length){k=0};
-	}
-}
-
-for (var i = 0; i < p_collect.length; i++) {
-	p_collect[i].addEventListener('click', f1());
-}
+console.log(obj.func());
+console.log(obj.func());
+console.log(obj.func());
+console.log(obj.func());
+console.log(obj.func());
+console.log(obj.func());
