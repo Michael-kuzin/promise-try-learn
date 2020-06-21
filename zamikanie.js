@@ -112,23 +112,25 @@
 
 
 let obj = {
-  number:3,
+  number:2,
   func:(function () {
+        let num = this.number;
         let a = 1;
         let b = 1;
         return function() {
-          for(let i = 3;i <= this.number; i++) {
+          for(let i = 1;i <= num; i++) {
             let c = a + b;
             a = b;
             b = c;
           }
-          return b;
+          num = b;
+          return num;
         }
- }())
+  }())
 }
 console.log(obj.func());
 console.log(obj.func());
 console.log(obj.func());
 console.log(obj.func());
-console.log(obj.func());
-console.log(obj.func());
+// console.log(obj.func());
+// console.log(obj.func());
