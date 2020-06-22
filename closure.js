@@ -110,27 +110,72 @@
 
 
 
+//
+// let obj = {
+//   number:2,
+//   func:(function () {
+//         let num = this.number;
+//         let a = 1;
+//         let b = 1;
+//         return function() {
+//           for(let i = 1;i <= num; i++) {
+//             let c = a + b;
+//             a = b;
+//             b = c;
+//           }
+//           num = b;
+//           return num;
+//         }
+//   }())
+// }
+// console.log(obj.func());
+// console.log(obj.func());
+// console.log(obj.func());
+// console.log(obj.func());
+// // console.log(obj.func());
+// console.log(obj.func());
 
-let obj = {
-  number:2,
-  func:(function () {
-        let num = this.number;
-        let a = 1;
-        let b = 1;
-        return function() {
-          for(let i = 1;i <= num; i++) {
-            let c = a + b;
-            a = b;
-            b = c;
-          }
-          num = b;
-          return num;
-        }
-  }())
-}
-console.log(obj.func());
-console.log(obj.func());
-console.log(obj.func());
-console.log(obj.func());
-// console.log(obj.func());
-// console.log(obj.func());
+
+
+
+// if (!("a" in global)) {
+//     var a = 1;
+// }
+// console.log(a);
+
+
+
+// var b = function a(x) {
+//     x && a(--x);
+// };
+// console.log(a);
+
+var users = [{
+  name: "Вася",
+  surname: 'Иванов',
+  age: 20
+}, {
+  name: "Петя",
+  surname: 'Чапаев',
+  age: 25
+}, {
+  name: "Маша",
+  surname: 'Медведева',
+  age: 18
+}];
+
+function byField(field) {
+    return function(a, b) {
+      return a[field] > b[field] ? 1 : -1;
+    }
+  }
+
+users.sort(byField('name'));
+users.forEach(function(user) {
+  console.log(user.name)
+});
+
+users.sort(byField('age'));
+users.forEach(function(user) { 
+  console.log(user.name)
+});
